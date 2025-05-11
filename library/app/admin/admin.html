@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnlineLib | Admin</title>
+    <link rel="stylesheet" href='../../dist/admin/admin.css'>
+</head>
+<body>
+    <nav class="navbar">
+        <h1 class="title">OnlineLib</h1>
+        <div class="nav-links">
+            <button>Info</button>
+            <button>Moje Knjige</button>
+            <button>Pregled knjiga</button>
+        </div>
+    </nav>
+
+    <br>
+
+   <div id="booksOverviewContainer">
+
+    <table id="books">
+        <thead>
+            <tr>
+                <th>Br</th>
+                <th>Naziv</th>
+                <th>#</th>
+            </tr>
+        </thead>
+        <tbody id="books-body">
+
+        </tbody>
+    </table>
+
+   </div>
+
+   <div id="formContainer">
+    
+    <form id="newBookForm">
+
+        <label for="name">Naziv:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="id">ID:</label>
+        <input type="number" id="id" name="id" required>
+
+        <label for="type">Tip:</label>
+        <input type="text" id="type" name="type" required>
+
+        <label for="pic">Slika:</label>
+        <input type="text" id="pic" name="pic" required>
+
+        <textarea id="description" name="description" required>Opis:</textarea>
+
+        <label for="popular">Popularnost</label>
+        <input type="number" id="popular" name="popular" min="1" max="5" required>
+
+        <button type="submit" id="submitBtn">Dodaj knjigu</button>
+
+    </form>
+
+   </div>
+</body>
+</html>
