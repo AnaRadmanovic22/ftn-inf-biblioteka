@@ -29,4 +29,43 @@ body {
   color: #0056b3;
 }
 
+#booksOverviewContainer {
+  width: 50%;
+}
+#booksOverviewContainer table {
+  width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  background-color: #f9f9f9;
+}
+#booksOverviewContainer table th, #booksOverviewContainer table td {
+  border: 1px solid #ccc;
+  padding: 12px 15px;
+  text-align: left;
+}
+#booksOverviewContainer table th {
+  background-color: #e0e0e0;
+  font-weight: bold;
+}
+#booksOverviewContainer table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+#booksOverviewContainer table tr:hover {
+  background-color: #d8f0ff;
+}
+#booksOverviewContainer table button {
+  padding: 6px 10px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#booksOverviewContainer table button:hover {
+  background-color: dimgray;
+}
+
 /*# sourceMappingURL=admin.css.map */
