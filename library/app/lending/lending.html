@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnlineLib | Moje knjige</title>
+    <link rel="stylesheet" href="../../dist/lending/lending.css" >
+</head>
+<body>
+     <nav class="navbar">
+        <h1 class="title">OnlineLib</h1>
+        <div class="nav-links">
+            <button>Info</button>
+            <button>Moje Knjige</button>
+            <button>Pregled knjiga</button>
+        </div>
+    </nav>
+
+    <br>
+
+    <div id="container">
+
+        <!-- B1 Iznajmljene knjige -->
+        <div id="rentedBooks">
+
+            <table id="rentedTable">
+                <thead>
+                    <tr>
+                        <th>Br</th>
+                        <th>Naziv</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody id="rentedBooks-body">
+
+                </tbody>
+            </table>
+
+        </div>
+
+        <!-- B2 Dostupne knjige za iznajmljivanje -->
+        <div id="availableBooks">
+
+            <table id="availableTable">
+                <thead>
+                    <tr>
+                        <th>Br</th>
+                        <th>Naziv</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody id="availableBooks-body">
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+    <script src="lending.js"></script>
+</body>
+</html>
