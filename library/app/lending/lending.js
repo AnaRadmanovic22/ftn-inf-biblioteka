@@ -24,6 +24,7 @@ function returnBook(bookToReturn) {
 
     saveReservedBooks(updatedReserved);
     renderReservedBooksTable();
+    renderAvailableBooksTable();
 }
 
 //  za prikaz tabele iznajmljenih knjiga
@@ -60,6 +61,67 @@ function renderReservedBooksTable() {
         table.appendChild(tr)
     }
 }
+//funckija koja renderuje dostupne knjige
+function renderAvailableBooksTable(){
+    const allBooks = loadAllBooks();
+    const reservedBooks = loadReservedBooks();
+
+    let availableBooks = [];
+//prolazimo kroz sve knjige i proveravamo za svaku da li je rezervisana , ako nije dodajemo je u availableBooks
+    for (let i = 0; i< allBooks.length; i++) {
+        let book = allBooks[i];
+        let isReserved = false;
+        
+        for (let j = 0; j < reservedBooks.length; j++){
+            if (reservedBooks[j].id === book.id) {
+                isReserved = true;
+                break;
+            }
+        }
+        if(!isReserved){
+        availableBooks.push(book);
+    }
+    }
+    //kreiramo tabelu dinamicki
+    const table = document.querySelector("#availableBooks-body");
+    table.innerHTML = "";
+
+    for (let i = 0; i < availableBooks.length; i++) {
+        const tr = document.createElement('tr');
+        const num = document.createElement('td');
+        num.textContent = i + 1;
+
+        const name = document.createElement('td');
+        name.textContent = availableBooks[i].title;
+
+        const rentField = document.createElement('td');
+        const rentBtn = document.createElement('button');
+        rentBtn.textContent = 'Iznajmi';
+
+        rentBtn.addEventListener('click', function () {
+            rentBook(availableBooks[i]);
+        });
+
+        rentField.appendChild(rentBtn);
+
+        tr.appendChild(num);
+        tr.appendChild(name);
+        tr.appendChild(rentField);
+
+        table.appendChild(tr);
+    }
+}
+
+//dodajemo funckiju za iznajmljivanje Knjige
+function rentBook(bookToRent) {
+    const reservedBooks = loadReservedBooks();
+    reservedBooks.push(bookToRent);
+    saveReservedBooks(reservedBooks);
+
+    renderReservedBooksTable();
+    renderAvailableBooksTable();
+}
+
 
 //  funkcija za učitavanje svih knjiga iz localStorage (kolekcija "books")
 function loadAllBooks() {
@@ -95,4 +157,5 @@ function saveReservedBooks(reservedBooks) {
 
 document.addEventListener('DOMContentLoaded', () => {
     renderReservedBooksTable();
+    renderAvailableBooksTable();
 });

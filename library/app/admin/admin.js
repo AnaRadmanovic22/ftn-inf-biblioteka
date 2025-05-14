@@ -1,5 +1,5 @@
 'use strict'
-
+//obrisao sam u konstruktoru parametar id, nema potrebe za tim
 class Book{
     constructor(title,date,url,description,popularity){
         this.title=title;
