@@ -1,4 +1,4 @@
-@import '../styles/global';
+@use '../styles/global' as *;
 
 $primary-color: #007bff;
 $accent-color: #0056b3;
@@ -48,4 +48,51 @@ $warn-color: #dc3545;
         }
     }
     }
+}
+//forma
+#formContainer {
+    width: 300px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+}
+
+#newBookForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#newBookForm label {
+    font-size: 14px;
+    color: #333;
+}
+
+#newBookForm input[type="text"],
+#newBookForm input[type="number"],
+#newBookForm textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+#newBookForm button {
+    padding: 10px;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+#newBookForm button:hover {
+    background-color: $accent-color;
 }

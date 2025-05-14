@@ -1,8 +1,7 @@
 'use strict'
 
 class Book{
-    constructor(id,title,date,url,description,popularity){
-        this.id = id;
+    constructor(title,date,url,description,popularity){
         this.title=title;
         this.date=date;
         this.url=url;
@@ -10,6 +9,10 @@ class Book{
         this.popularity=popularity;
     }
 }
+
+//dodao sam ovu varijablu globalnu u koje cu puniti nove knjige
+let books = [];
+
 
 // 1.1 Prikaz i brisanje knjiga
 
@@ -47,9 +50,32 @@ function addTableRows(books){
     }
     
 }
+//A2- dodao sam funckiju za dodavanje nove knjige
+function handleForSubmisson(book){
+    book.preventDefault();
+
+    const form = document.querySelector("#newBookForm");
+    const formData = new FormData(form);
+
+    const name = formData.get("title");
+    // const id = formData.get("id");
+    //ovde sam naisao na gresku jer se u zadatku trazi datum stampanja a ne tip, prepravio sam to i u html-u
+    const date = formData.get("date");
+    const image = formData.get("pic");
+    const description = formData.get("description");
+    const popularity = formData.get("popular");
+
+    const newBook = new Book(name, date, image, description, popularity);
+    books.push(newBook);
+    localStorage.setItem("books", JSON.stringify(books));
+    addTableRows(books);
+    form.reset();
+
+}
+//dodao sam dogadjaj kada se stisne sumbit forme
+document.querySelector("#newBookForm").addEventListener("submit", handleForSubmisson)
 
 function initializeBooks(){
-    let books = []
     let savedBooks = localStorage.getItem('books')
     if(savedBooks){
         books = JSON.parse(savedBooks);
